@@ -11,7 +11,7 @@
 | last_name          | string | null: false              |
 | first_name_kana    | string | null: false              |
 | last_name_kana     | string | null: false              | 
-| birthday           | data   | null: false              |
+| birthday           | date   | null: false              |
 
 
 ### Association
@@ -31,14 +31,14 @@
 | delivery_charge_id  | integer    | null: false                    |
 | sender_id           | integer    | null: false                    |
 | date_of_shipment_id | integer    | null: false                    |
-| price               | string     | null: false                    |
+| price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
 
 ### Association
 
 - belongs_to :user
-- has_many   :orders
+- has_one   :order
 
 
 ## orders テーブル
