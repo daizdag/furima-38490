@@ -16,8 +16,8 @@
 
 ### Association
 
-- has_many :items
-- has_one  :order
+- has_many   :items
+- has_many   :orders
 
 
 ## items テーブル
@@ -32,28 +32,28 @@
 | sender_id           | integer    | null: false                    |
 | date_of_shipment_id | integer    | null: false                    |
 | price               | string     | null: false                    |
-| user_id             |references  | null: false, foreign_key: true |
+| user                | references | null: false, foreign_key: true |
 
 
 ### Association
 
 - belongs_to :user
-- belongs_to :order
+- has_many   :orders
 
 
 ## orders テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| item_id            | references | null: false, foreign_key: true |
-| user_id            | references | null: false, foreign_key: true |
+| item               | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- has_one  :user
-- has_one  :address
-- has_many :items
+- belongs_to :user
+- belongs_to :item
+- has_one    :address
 
 
 # addresses テーブル
@@ -61,13 +61,13 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | post_number        | string     | null: false                    |
-| prefectures        | string     | null: false                    |
+| prefecture_id      | integer    | null: false                    |
 | municipalities     | string     | null: false                    |
 | address            | string     | null: false                    |
-| Building name      | string     |                                |
-| Telephone number   | string     | null: false                    |
-| order_id           | references | null: false, foreign_key: true |
+| building_name      | string     |                                |
+| telephone_number   | string     | null: false                    |
+| order              | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_one  :order
+- belongs_to  :order
