@@ -27,7 +27,7 @@
 | name                | string     | null: false                    |
 | content             | text       | null: false                    |
 | category_id         | integer    | null: false                    |
-| state_id            | integer    | null: false,                   |
+| state_id            | integer    | null: false                    |
 | delivery_charge_id  | integer    | null: false                    |
 | sender_id           | integer    | null: false                    |
 | date_of_shipment_id | integer    | null: false                    |
