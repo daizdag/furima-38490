@@ -30,7 +30,7 @@
 | state_id             | integer    | null: false                    |
 | deliverycharge_id    | integer    | null: false                    |
 | sender_id            | integer    | null: false                    |
-| ScheduledDelivery_id | integer    | null: false                    |
+| scheduleddelivery_id | integer    | null: false                    |
 | price                | integer    | null: false                    |
 | user                 | references | null: false, foreign_key: true |
 
