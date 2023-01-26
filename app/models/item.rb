@@ -10,15 +10,21 @@ class Item < ApplicationRecord
 
 
 
+  validates :image,                 presence: true
   validates :name,                  presence: true
   validates :content,               presence: true
-  validates :category_id,           presence: true
-  validates :state_id,              presence: true
-  validates :deliverycharge_id,     presence: true
-  validates :sender_id,             presence: true
-  validates :scheduleddelivery_id,  presence: true
-  validates :price,                 presence: true
-  validates :image,                 presence: true
+  validates :category_id,           numericality: { other_than: 1 , message: "can't be blank"}
+  validates :state_id,              numericality: { other_than: 1 , message: "can't be blank"}
+  validates :deliverycharge_id,     numericality: { other_than: 1 , message: "can't be blank"}
+  validates :sender_id,             numericality: { other_than: 1 , message: "can't be blank"}
+  validates :scheduleddelivery_id,  numericality: { other_than: 1 , message: "can't be blank"}
+  validates :price,                 presence: true, 
+                                    numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 , message: "is out of setting range"}, 
+                                    format: { with: /\A[0-9]+\z/ , message: " is invalid. Input half-width characters"}
+
+
+
+  
 
 
 
