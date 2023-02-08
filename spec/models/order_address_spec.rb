@@ -67,7 +67,7 @@ RSpec.describe OrderAddress, type: :model do
       it 'telephone_numberが12以上では保存できないこと' do
         @order_address.telephone_number = '090012009000'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Telephone number is too short")
+        expect(@order_address.errors.full_messages).to include("Telephone number is too long")
       end
       it 'userが紐付いていないと保存できないこと' do
         @order_address.user_id = nil

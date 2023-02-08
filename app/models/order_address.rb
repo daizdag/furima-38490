@@ -13,6 +13,7 @@ class OrderAddress
     validates :item_id
   end
   validates :telephone_number,   format: {with: /\A[0-9]{10,11}\z/, message: "is too short"}
+  validates :telephone_number,   format: {with: /\A[0-9]{10,11}\z/, message: "is too long"}
   validates :telephone_number,   format: {with: /\d/, message: "is invalid. Input only number"}
 
   def save
