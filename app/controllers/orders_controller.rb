@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_index, only: [:new, :create]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :contributor_confirmation, only: [:new, :create]
   before_action :order_confirmation, only: [:new, :create]
 
   def index
@@ -34,6 +35,11 @@ class OrdersController < ApplicationController
 
   def order_confirmation
     redirect_to root_path unless @item.order.nil?
+  end
+
+  def contributor_confirmation
+    current_user == @item.user
+    redirect_to root_path 
   end
 
   def pay_item
