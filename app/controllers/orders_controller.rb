@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_index, only: [:new, :create]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
   before_action :contributor_confirmation, only: [:new, :create]
   before_action :order_confirmation, only: [:new, :create]
 
@@ -38,8 +38,7 @@ class OrdersController < ApplicationController
   end
 
   def contributor_confirmation
-    current_user == @item.user
-    redirect_to root_path 
+    redirect_to root_path if current_user == @item.user
   end
 
   def pay_item

@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
-    @item = FactoryBot.build(:item)  # Userのインスタンス生成
+    @item = FactoryBot.build(:item)
   end
 
   describe '商品登録' do
