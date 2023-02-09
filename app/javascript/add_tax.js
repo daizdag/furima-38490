@@ -3,9 +3,11 @@ window.addEventListener('load', () => {
   priceInput.addEventListener("input", () => {
     const inputValue = priceInput.value;
     const addTaxDom = document.getElementById("add-tax-price");
-    addTaxDom.innerHTML = Math.floor(inputValue * 0.1 );
+    fee = Math.floor(inputValue * 0.1 );
+    addTaxDom.innerHTML = fee.toLocaleString();
     const addProDom = document.getElementById("profit");
-    addProDom.innerHTML = inputValue - Math.floor(inputValue * 0.1);
+    pfnum = inputValue - Math.floor(inputValue * 0.1);
+    addProDom.innerHTML = pfnum.toLocaleString();
 
   })
   
