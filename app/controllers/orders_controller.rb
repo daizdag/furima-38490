@@ -1,12 +1,9 @@
 class OrdersController < ApplicationController
-  before_action :set_index, only: [:new, :create]
-  before_action :authenticate_user!, except: [:index]
-  before_action :contributor_confirmation, only: [:new, :create]
-  before_action :order_confirmation, only: [:new, :create]
+  before_action :set_index
+  before_action :authenticate_user!
+  before_action :contributor_confirmation
+  before_action :order_confirmation
 
-  def index
-    
-  end
 
   def new
     @order_address = OrderAddress.new
