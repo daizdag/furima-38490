@@ -4,17 +4,17 @@ class OrderAddress
 
   with_options presence: true do
     validates :token
-    validates :post_number,        format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Enter it as follows (e.g. 123-4567)"}            
-    validates :prefecture_id,      numericality: {other_than: 1, message: "can't be blank"}
+    validates :post_number,        format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "はアドレスは次のように入力してください (例: 123-4567)"}            
+    validates :prefecture_id,      numericality: {other_than: 1, message: "を入力してください"}
     validates :municipalities    
     validates :address
     validates :telephone_number
     validates :user_id
     validates :item_id
   end
-  validates :telephone_number,   format: {with: /\A[0-9]{10,11}\z/, message: "is too short"}
-  validates :telephone_number,   format: {with: /\A[0-9]{10,11}\z/, message: "is too long"}
-  validates :telephone_number,   format: {with: /\d/, message: "is invalid. Input only number"}
+  validates :telephone_number,   format: {with: /\A[0-9]{10,11}\z/, message: "は短いです"}, allow_blank: true  
+  validates :telephone_number,   format: {with: /\A[0-9]{10,11}\z/, message: "は長いです"}, allow_blank: true  
+  validates :telephone_number,   format: {with: /\d/, message: "は数字で入力してください"}, allow_blank: true
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
